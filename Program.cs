@@ -10,14 +10,16 @@ using Microsoft.AdCenter.BI.UET.Schema;
 using Newtonsoft.Json;
 using SerializaType = System.Byte;
 using System.IO;
+using SparkCommon;
 
 namespace UserAdActivitySummaryPipeline
 {
     class Program
     {
-        private const int Partitions = 10000;
+        private const int Partitions = 0;
         private static SparkContext sparkContext;
         private static string FileDirectorPath = "hdfs:///user/svcspark/database/zhuzh/uetuserid_searchclicksummary/csv";
+        private static string FileSummaryName = "SummaryFileName.txt";
 
         private static RDD<string> getRawData(string filename)
         {
@@ -36,22 +38,45 @@ namespace UserAdActivitySummaryPipeline
             });
             return res;
         }
-        private static RDD<string> getAllSummaryData(string path)
+        private static List<string> getSummaryFileName(string filename)
         {
-            DirectoryInfo folder = new DirectoryInfo(path);
-            RDD<string> data = sparkContext.Parallelize(new[] {"#test string"});
-            foreach (FileInfo file in folder.GetFiles("*.csv"))
+            Inputer FileInPut = new Inputer(filename);
+            List<string> fileList = new List<string>();
+            string data = "";
+            while((data = FileInPut.ReadLine()) != null)
             {
-                var value = getRawData(file.FullName);
-                data = data.Union(value);
+                if (data == "")
+                    continue;
+                fileList.Add(data);
             }
-            return data;
+            return fileList;
+        }
+        private static List<RDD<string>> getAllSummaryData(string path)
+        {
+            List<RDD<string>> res = new List<RDD<string>>();
+            RDD<string> data = sparkContext.Parallelize(new[] { "#test string" }).Filter(line => !line.StartsWith("#"));
+            var container = getSummaryFileName(FileSummaryName);
+            int count = 1;
+            foreach (var filename in container)
+            {
+                if(count%300 == 0)
+                {
+                    res.Add(data);
+                    data = sparkContext.Parallelize(new[] { "#test string" }).Filter(line => !line.StartsWith("#"));
+                }
+                var value = getRawData(path +"/" +filename);
+                data = data.Union(value);
+                count++;
+            }
+            return res;
         }
         static void Main(string[] args)
         {
             sparkContext = new SparkContext(new SparkConf().SetAppName("UserAdActivitySummaryPipeline"));
             var SummaryData = getAllSummaryData(FileDirectorPath);
-            Console.WriteLine("---------AllSummaryData count: " + SummaryData.Count());
+            int partion = 1;
+            foreach(var data in SummaryData)
+                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}",partion++,data.Count()));
         }
     }
 }
