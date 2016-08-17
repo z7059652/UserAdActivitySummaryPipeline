@@ -75,8 +75,10 @@ namespace UserAdActivitySummaryPipeline
             sparkContext = new SparkContext(new SparkConf().SetAppName("UserAdActivitySummaryPipeline"));
             var SummaryData = getAllSummaryData(FileDirectorPath);
             int partion = 1;
-            foreach(var data in SummaryData)
-                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}",partion++,data.Count()));
+            foreach (var data in SummaryData)
+            {
+                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}", partion++, data.Count())); 
+            }
         }
     }
 }
