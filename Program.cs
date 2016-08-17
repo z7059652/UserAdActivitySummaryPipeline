@@ -47,7 +47,6 @@ namespace UserAdActivitySummaryPipeline
         }
         static void Main(string[] args)
         {
-            Test();
         }
     }
 }
