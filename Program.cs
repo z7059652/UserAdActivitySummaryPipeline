@@ -77,7 +77,8 @@ namespace UserAdActivitySummaryPipeline
             int partion = 1;
             foreach (var data in SummaryData)
             {
-                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}", partion++, data.Count())); 
+                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}", partion, data.Count()));
+                partion++;
             }
         }
     }
