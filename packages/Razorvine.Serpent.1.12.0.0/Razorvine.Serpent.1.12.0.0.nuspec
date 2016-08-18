@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Razorvine.Serpent</id>
+    <version>1.12.0.0</version>
+    <title>Razorvine.Serpent</title>
+    <authors>Irmen de Jong</authors>
+    <owners>Irmen de Jong</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/irmen/Serpent</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Serpent Python literal expression serialization.
+
+Serpent provides Python ast.literal_eval() compatible object tree serialization.
+It serializes an object tree into bytes that can be transferred to Python and
+decoded there (using ast.literal_eval()). It can ofcourse also deserialize
+such a Python expression itself, back into the equivalent .NET datatypes.
+
+More info for the Python version is on Pypi: https://pypi.python.org/pypi/serpent</description>
+    <summary>Serpent Python literal expression serialization</summary>
+    <releaseNotes>number parsing performance on large arrays greatly improved</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>serialization python pyro</tags>
+  </metadata>
+</package>

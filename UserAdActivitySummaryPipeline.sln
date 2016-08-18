@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAdActivitySummaryPipeline", "UserAdActivitySummaryPipeline.csproj", "{C40B4A75-6E8A-440C-BC01-AA4796F36D17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCraw", "..\WebCraw\WebCraw.csproj", "{A28C8FC6-978C-476A-A9DA-E99694F34DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkCommon", "SparkCommon\SparkCommon.csproj", "{F2B621EA-9B00-4842-9350-0AF9EC925EF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C40B4A75-6E8A-440C-BC01-AA4796F36D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40B4A75-6E8A-440C-BC01-AA4796F36D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40B4A75-6E8A-440C-BC01-AA4796F36D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40B4A75-6E8A-440C-BC01-AA4796F36D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28C8FC6-978C-476A-A9DA-E99694F34DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28C8FC6-978C-476A-A9DA-E99694F34DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28C8FC6-978C-476A-A9DA-E99694F34DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28C8FC6-978C-476A-A9DA-E99694F34DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2B621EA-9B00-4842-9350-0AF9EC925EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B621EA-9B00-4842-9350-0AF9EC925EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B621EA-9B00-4842-9350-0AF9EC925EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B621EA-9B00-4842-9350-0AF9EC925EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -20,7 +20,7 @@ namespace UserAdActivitySummaryPipeline
         private static SparkContext sparkContext;
         private static string FileDirectorPath = "hdfs:///user/svcspark/database/zhuzh/uetuserid_searchclicksummary/csv";
         private static string FileSummaryName = "SummaryFileName.txt";
-        private static int PartitionSummary = 500;
+        private static int PartitionSummary = 300;
 
         private static RDD<string> getRawData(string filename)
         {
