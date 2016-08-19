@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSharpWorker">
-      <HintPath>..\packages\Microsoft.SparkCLR.1.6.100\lib\net45\CSharpWorker.exe</HintPath>
+      <HintPath>dll\CSharpWorker.exe</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <HintPath>dll\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AdCenter.BI.UET.Attribution.AttributionCommon">
       <HintPath>C:\Users\t-zhuxia\Desktop\dll\Microsoft.AdCenter.BI.UET.Attribution.AttributionCommon.dll</HintPath>
@@ -79,17 +79,17 @@
       <HintPath>C:\Users\t-zhuxia\Desktop\dll\Microsoft.Bond.LogExtractor.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Spark.CSharp.Adapter">
-      <HintPath>..\packages\Microsoft.SparkCLR.1.6.100\lib\net45\Microsoft.Spark.CSharp.Adapter.dll</HintPath>
+      <HintPath>dll\Microsoft.Spark.CSharp.Adapter.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Razorvine.Pyrolite">
-      <HintPath>..\packages\Razorvine.Pyrolite.4.10.0.0\lib\net40\Razorvine.Pyrolite.dll</HintPath>
+      <HintPath>dll\Razorvine.Pyrolite.dll</HintPath>
     </Reference>
     <Reference Include="Razorvine.Serpent">
-      <HintPath>..\packages\Razorvine.Serpent.1.12.0.0\lib\net40\Razorvine.Serpent.dll</HintPath>
+      <HintPath>dll\Razorvine.Serpent.dll</HintPath>
     </Reference>
     <Reference Include="SparkSchema">
       <HintPath>C:\Users\t-zhuxia\Desktop\dll\SparkSchema.dll</HintPath>

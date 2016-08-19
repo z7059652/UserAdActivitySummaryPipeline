@@ -18,9 +18,10 @@ namespace UserAdActivitySummaryPipeline
     {
         private const int Partitions = 0;
         private static SparkContext sparkContext;
-        private static string FileDirectorPath = "hdfs:///user/svcspark/database/zhuzh/uetuserid_searchclicksummary/csv";
-        private static string FileSummaryName = "SummaryFileName.txt";
+        private static string FileDirectorPath = "hdfs:///user/svcspark/database/zhuzh/saclicks_20160817/csv";
+        private static string FileSummaryName = "SummaryFileNameSmallData.txt";
         private static int PartitionSummary = 300;
+        private static string CheckpointDir = "hdfs:///user/t-zhuxia/UserAdActivity20160718/";
 
         private static RDD<string> getRawData(string filename)
         {
@@ -74,13 +75,19 @@ namespace UserAdActivitySummaryPipeline
         static void Main(string[] args)
         {
             sparkContext = new SparkContext(new SparkConf().SetAppName("UserAdActivitySummaryPipeline"));
-            var SummaryData = getAllSummaryData(FileDirectorPath);
+            sparkContext.SetCheckpointDir(CheckpointDir);
+            var SummaryDataSet = getAllSummaryData(FileDirectorPath);
             int partion = 1;
-            foreach (var data in SummaryData)
+            var SummaryData = sparkContext.Parallelize(new[] { "#test string" }).Filter(line => !line.StartsWith("#"));
+            foreach (var data in SummaryDataSet)
             {
-                Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}", partion, data.Count()));
+                data.Checkpoint();
+                Console.WriteLine(string.Format("---------SummaryData Partition {0} count: {1}", partion, data.Count()));
+                SummaryData = SummaryData.Union(data);
                 partion++;
             }
+            Console.WriteLine();
+            Console.WriteLine(string.Format("---------AllSummaryData {0} count: {1}", partion, SummaryData.Count()));
         }
     }
 }
